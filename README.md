@@ -1,6 +1,6 @@
 # Azure Flare — personal website
 
-Site: https://azureflarez.github.io/site/
+Site: https://rotterdamsterdam.github.io/site/
 
 ## Structure
 
