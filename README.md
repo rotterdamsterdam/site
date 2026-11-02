@@ -57,3 +57,6 @@ Commit to main. GitHub Pages publishes automatically.
 
 ## Biography draft
 The biography is an abstract draft requested by the owner, not verified personal facts. Replace its values in the three language files and the English fallback paragraphs in about.html.
+
+## Visual design
+The current layout is inspired by hydejack.com: a full-height teal cover on Home, a persistent sidebar on large inner pages, and a serif reading surface. It uses custom CSS, not the Hydejack Jekyll theme. Edit colors in styles/themes.css, typography in styles/base.css, and cover/sidebar layout in styles/profile.css.
