@@ -1,0 +1,252 @@
+/* Futuristic skin and motion. Edit independently from page content. */
+@view-transition {
+  navigation: auto;
+}
+:root {
+  --bg: #edf5fa;
+  --fg: #13283e;
+  --muted: #4f687c;
+  --accent: #006e83;
+  --line: #14657d30;
+  --panel: #ffffffb8;
+  --glow: #00c9e4;
+  --violet: #7855ff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #070c18;
+    --fg: #e6f4ff;
+    --muted: #92a9c3;
+    --accent: #6ae6f1;
+    --line: #70b8e82b;
+    --panel: #101c30b8;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #070c18;
+  --fg: #e6f4ff;
+  --muted: #92a9c3;
+  --accent: #6ae6f1;
+  --line: #70b8e82b;
+  --panel: #101c30b8;
+}
+html {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+}
+body {
+  isolation: isolate;
+  overflow-x: clip;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(#0009, transparent 90%);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 20%, #00c9e41c, transparent 45%),
+    radial-gradient(ellipse at 80% 70%, #7855ff25, transparent 45%);
+  animation: atmosphere 18s ease-in-out infinite alternate;
+}
+h1, h2, h3 {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+h1 {
+  letter-spacing: -.055em;
+  font-weight: 750;
+  text-shadow: 0 0 36px #00c9e41a;
+}
+h2 {
+  font-size: 1.55rem;
+}
+.main-menu {
+  border-right: 1px solid #6ae6f144;
+  background: #071c30;
+  overflow: hidden auto;
+}
+.main-menu::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 35% 25%, #00d7ef85, transparent 45%),
+    radial-gradient(ellipse at 80% 70%, #694aff80, transparent 45%),
+    repeating-linear-gradient(0deg, transparent 0 79px, #ffffff09 80px);
+  animation: atmosphere 13s ease-in-out infinite alternate;
+}
+.main-menu {
+  isolation: isolate;
+}
+.main-menu::before {
+  border: 1px solid #76eaffaa;
+  border-radius: 22px;
+  color: #d5faff;
+  box-shadow: 0 0 30px #00c9e433, inset 0 0 25px #00c9e422;
+  animation: beacon 5s ease-in-out infinite;
+}
+.site-brand {
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 750;
+  letter-spacing: -.045em;
+}
+.site-tagline {
+  font-size: .8rem;
+  letter-spacing: .12em;
+}
+.main-menu nav {
+  width: min(280px, 100%);
+}
+.main-menu nav li {
+  margin: .5rem 0;
+}
+.main-menu nav a {
+  display: block;
+  border: 1px solid transparent;
+  padding: .35rem 1rem;
+  border-radius: 8px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: .9rem;
+  font-weight: 500;
+  transition: background .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+.main-menu nav a:hover,
+.main-menu nav a[aria-current="page"] {
+  background: #8befff10;
+  border: 1px solid #82eaff50;
+  box-shadow: inset 3px 0 #7feaff, 0 0 20px #00c9e418;
+}
+.main-menu nav a:hover {
+  transform: translateX(5px);
+}
+.main-body {
+  padding-top: 4.5rem;
+}
+.main-body > section,
+.main-body > article {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 70px #0000000a;
+  backdrop-filter: blur(16px);
+}
+.main-body a {
+  transition: color .2s, text-shadow .2s;
+}
+.main-body a:hover {
+  text-shadow: 0 0 16px #00c9e450;
+}
+.link-list li {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: .8rem 0;
+  padding: 1.2rem;
+  background: var(--panel);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.link-list li:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px #00c9e416;
+}
+button, select {
+  border-radius: 8px;
+  transition: border-color .2s, box-shadow .2s;
+}
+button:hover, select:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px #00c9e41a;
+}
+.profile-avatar {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 24px #00c9e430;
+}
+.sidebar-social {
+  transition: transform .3s, filter .3s;
+}
+.sidebar-social:hover {
+  transform: translateY(-3px) rotate(-8deg);
+  filter: drop-shadow(0 0 8px #6ae6f1);
+}
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.motion-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+body[data-page="home"] .main-menu {
+  background:
+    radial-gradient(ellipse at var(--pointer-x, 50%) var(--pointer-y, 40%), #00b5d522, transparent 50%),
+    #071329;
+}
+body[data-page="home"] .main-menu::before {
+  width: 90px;
+  height: 90px;
+  font-size: 2rem;
+}
+body[data-page="home"] .site-brand {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  background: linear-gradient(100deg, #fff 20%, #8aeeff 55%, #c0b5ff);
+  background-clip: text;
+  color: transparent;
+}
+@keyframes atmosphere {
+  from { transform: translate3d(-3%, -2%, 0) rotate(-5deg) scale(1); }
+  to { transform: translate3d(5%, 4%, 0) rotate(7deg) scale(1.12); }
+}
+@keyframes beacon {
+  0%, 100% { transform: translateY(0) rotate(-4deg); box-shadow: 0 0 24px #00c9e433; }
+  50% { transform: translateY(-8px) rotate(4deg); box-shadow: 0 0 48px #00c9e466; }
+}
+::view-transition-old(root) {
+  animation: .2s ease both fade-out;
+}
+::view-transition-new(root) {
+  animation: .35s ease both fade-in;
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+}
+@media (max-width: 850px) {
+  .main-menu nav {
+    width: auto;
+  }
+  .main-menu nav a {
+    padding: .35rem .6rem;
+  }
+  .main-body > section, .main-body > article {
+    padding: 1.3rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .motion-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
