@@ -18,7 +18,11 @@
     linear-gradient(160deg, #234d58 0%, #104c53 45%, #062f3b 100%);
 }
 .main-menu::before {
-  content: "";
+  content: "AF";
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font: bold 1.8rem Georgia, serif;
   width: 74px;
   height: 74px;
   border: 2px solid #ffffffa0;
